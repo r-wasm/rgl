@@ -45,7 +45,9 @@
   dir <- getDir(useNULL)
   
   unixos <- "none"
-  if (.Platform$OS.type == "unix") {
+  if (R.version$os == "emscripten") {
+    unixos <- "Emscripten"
+  } else if (.Platform$OS.type == "unix") {
     unixos <- system("uname", intern=TRUE)
     if (!length(unixos))
       unixos <- "unknown"    
