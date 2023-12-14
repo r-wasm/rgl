@@ -42,6 +42,10 @@ else
   darwin="no"
 fi
 
+if test `uname` = "Emscripten" ; then
+  enable_opengl=no
+fi
+
 ## --- LibPNG ----------------------------------------------------------------
 
 AC_ARG_ENABLE([libpng],
